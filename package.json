@@ -1,10 +1,11 @@
 {
     "scripts": {
-        "dev": "rollup src/main.js --format iife --file public/main.js --watch.include 'src/*' --watch --watch.onEnd='npm run reload'",
+        "dev": "rollup -c rollup.config.mjs --format iife --file public/main.js --watch --watch.onEnd='npm run reload'",
         "reload": "cat public/main.js tool/livereload_injection.js | node tool/inline.js  > public/index.html && md5sum public/index.html | cut -f1 -d' ' | node tool/reload.js > public/livereload_hash.js",
         "build": "rollup src/main.js --format iife | node tool/inline.js > build/index.html"
     },
     "devDependencies": {
+        "@rollup/plugin-url": "^8.0.2",
         "rollup": "^4.41.0"
     }
 }
