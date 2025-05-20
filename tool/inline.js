@@ -1,3 +1,4 @@
+// inline js code into html
 const { stdin, stdout, argv } = require('node:process');
 const fs = require('node:fs');
 
