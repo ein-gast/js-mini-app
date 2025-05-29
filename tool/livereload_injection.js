@@ -5,12 +5,13 @@ document.addEventListener('livereloadUpdated', function (ev) {
         return
     }
     if (document.livereload_hash !== ev.detail) {
+        console.log('Liverload: reloading')
         document.livereload_hash = ev.detail
         document.location.reload();
     }
 })
 document.addEventListener('DOMContentLoaded', function () {
-    console.log('Liverload code injected')
+    console.log('Liverload: code injected')
     window.setInterval(function () {
         const tag = document.getElementById('livereload_hash')
         let parent = null
@@ -26,4 +27,5 @@ document.addEventListener('DOMContentLoaded', function () {
         newTag.id = 'livereload_hash';
         parent.appendChild(newTag);
     }, 500)
-})
+});
+//---
